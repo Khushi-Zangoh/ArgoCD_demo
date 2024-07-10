@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name}}-deployment
+  labels:
+    app: {{ .Values.selector.app }}
+    type: {{ .Values.selector.type }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: {{ .Values.selector.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.selector.app }}
+        type: {{ .Values.selector.type }}
+    spec:
+      containers:
+        - name: todoapp
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
