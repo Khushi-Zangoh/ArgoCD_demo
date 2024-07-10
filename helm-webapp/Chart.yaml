@@ -9,7 +9,7 @@ version: 0.1.0
 appVersion: "1.0"
 
 # Declare jobs in your chart
-jobs:
-  - name: after-setup
-    path: templates/job.yaml
-    hook: PostSync  # Ensure this job runs after synchronization
+# jobs:
+#   - name: after-setup
+#     path: templates/job.yaml
+#     hook: PostSync  # Ensure this job runs after synchronization
