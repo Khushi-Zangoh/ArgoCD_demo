@@ -7,3 +7,9 @@ version: 0.1.0
 
 # The version of the application being deployed
 appVersion: "1.0"
+
+# Declare jobs in your chart
+jobs:
+  - name: after-setup
+    path: templates/job.yaml
+    hook: PostSync  # Ensure this job runs after synchronization
